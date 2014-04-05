@@ -22,6 +22,41 @@ head
     .container
       form.form-signin(action='/submit' method='POST')
         h2.form-signin-heading Election Booth Search
+        br
+        label District
+        select.form-control(name='district')
+          option(value='-1') --Select--
+          option(value='2') ಬಾಗಲಕೋಟೆ / BAGALKOT
+          option(selected='selected', value='21') ಬೃ.ಬೆ.ಮ.ಪಾ / BANGALORE
+          option(value='22') ಬೆಂಗಳೂರು ಗ್ರಾಮಾಂತರ / BANGALORE RURAL
+          option(value='1') ಬೆಳಗಾವಿ / BELGAUM
+          option(value='12') ಬಳ್ಳಾರಿ / BELLARY
+          option(value='5') ಬೀದರ್‌ / BIDAR
+          option(value='3') ವಿಜಾಪೂರ / BIJAPUR
+          option(value='29') ಚಾಮರಾಜನಗರ / CHAMARAJNAGAR
+          option(value='19') ಚಿಕ್ಕಬಳ್ಳಾಪುರ / CHIKKABALLAPUR
+          option(value='17') ಚಿಕ್ಕಮಗಳೂರು / CHIKMAGALUR
+          option(value='13') ಚಿತ್ರದುರ್ಗ / CHITRADURGA
+          option(value='26') ದಕ್ಷಿಣ ಕನ್ನಡ / DAKSHINA KANNADA
+          option(value='14') ದಾವಣಗೆರೆ / DAVANGERE
+          option(value='9') ಧಾರವಾಡ / DHARWAD
+          option(value='8') ಗದಗ / GADAG
+          option(value='4') ಗುಲಬರ್ಗಾ / GULBARGA
+          option(value='25') ಹಾಸನ / HASSAN
+          option(value='11') ಹಾವೇರಿ / HAVERI
+          option(value='27') ಕೊಡಗು / KODAGU
+          option(value='20') ಕೋಲಾರ / KOLAR
+          option(value='7') ಕೊಪ್ಪಳ / KOPPAL
+          option(value='24') ಮಂಡ್ಯ / MANDYA
+          option(value='28') ಮೈಸೂರು / MYSORE
+          option(value='6') ರಾಯಚೂರು / RAICHUR
+          option(value='23') ರಾಮನಗರಂ / RAMANAGARAM
+          option(value='15') ಶಿವಮೊಗ್ಗ / SHIMOGA
+          option(value='18') ತುಮಕೂರು / TUMKUR
+          option(value='16') ಉಡುಪಿ / UDUPI
+          option(value='10') ಉತ್ತರ ಕನ್ನಡ / UTTARA KANNADA
+          option(value='35') ಯಾದಗಿರಿ / YADGIR
+        br
         label EPIC ( Voter ID No.)
         input.form-control(type='text', placeholder='EPIC Number', autofocus='autofocus' name='epic')
         br

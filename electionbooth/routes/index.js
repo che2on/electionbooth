@@ -47,10 +47,9 @@ exports.signin = function(req, res){
 };
 
 exports.formsubmit = function(req, res){
-  console.log(req.body.username);
-  console.log(req.body.password);
+
   var form = new FormData();
-  form.append("ctl00$ContentPlaceHolder1$ddlDistrict", "21")
+  form.append("ctl00$ContentPlaceHolder1$ddlDistrict", req.body.district)
   //form.append("txtLogin", req.body.username); // store mobile number for tracking.
   form.append("ctl00$ContentPlaceHolder1$txtEpic", req.body.epic);
   form.append("__EVENTTARGET", "");
@@ -130,13 +129,17 @@ function parseData(req, res, data)
 
  json["epic"] = req.body.epic;
  json["mobile"] = req.body.mobile;
- 
+
  collection.ensureIndex( { "epic": 1 }, { unique: true } );
+ //insert only when they return valid values
+ if(json.hasOwnProperty("FirstName"))
+ {
  collection.insert(json, function(err,doc)
  {
 
 
  });
+ }
 
 // json.push("error": "no");
 console.log("json is "+json);
