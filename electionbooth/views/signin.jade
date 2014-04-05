@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='shortcut icon', href='../../assets/ico/favicon.png')
+    title Signin Template for Bootstrap
+    //
+       Bootstrap core CSS 
+    link(href='stylesheets/bootstrap.css', rel='stylesheet')
+    //
+       Custom styles for this template 
+    link(href='stylesheets/signin.css', rel='stylesheet')
+    //
+       HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
+    //if lt IE 9
+      script(src='../../assets/js/html5shiv.js')
+      script(src='../../assets/js/respond.min.js')
+  body
+    .container
+      form.form-signin(action='/submit' method='POST')
+        h2.form-signin-heading Election Booth Search
+        input.form-control(type='text', placeholder='EPIC Number', autofocus='autofocus' name='epic')
+        input.form-control(type='text', placeholder='Mobile' name='mobile')
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Search
+    //
+       /container 
+    //
+       Bootstrap core JavaScript
+          ================================================== 
+    //
+       Placed at the end of the document so the pages load faster 
