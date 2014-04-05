@@ -31,19 +31,43 @@ exports.defaultpage = function(req, res){
 
 
 exports.signin = function(req, res){
-  res.render('signin', {title: 'Sign in'});
-  //var l = request.get("http://124.40.244.213/cgi/logout.php", logout);
-//   var r= request.get("http://124.40.244.213/cgi/login.php" , function initialize(err, response, body)
-//  {
+  res.render('signin', {title: 'Sign in'}); 
+};
 
-//    var cookie = response.headers["set-cookie"];
-//    console.log(cookie[0]);
-//    var tmp = cookie[0].split(";");
-//    COOKIE = tmp[0];
-//    console.log(COOKIE);
-   
-// });
- 
+exports.delhi = function(req, res) {
+  res.render('delhi', {title: ''})
+};
+
+
+exports.delhiformsubmit = function(req, res) {
+  var form = new FormData();
+  form.append("ctl00$ContentPlaceHolder1$TextBoxIDCardNo", req.body.epic)
+  //form.append("txtLogin", req.body.username); // store mobile number for tracking.
+  form.append("ctl00$ContentPlaceHolder1$ButtonSearch", "Search");
+  form.append("__EVENTTARGET", "");
+  form.append("__EVENTARGUMENT", "");
+  form.append("__VIEWSTATE", "/wEPDwULLTEwNTA3NTE4OTcPZBYCZg9kFgICAw9kFgQCBRA8KwANAgAPFgIeC18hRGF0YUJvdW5kZ2QMFCsACAUbMDowLDA6MSwwOjIsMDozLDA6NCwwOjUsMDo2FCsAAhYMHgRUZXh0BTJLbm93IFlvdXIgIEFzc2VtYmx5IGFuZCBQYXJsaWFtZW50YXJ5IENvbnN0aXR1ZW5jeR4LTmF2aWdhdGVVcmwFFX4vU2VhcmNoTG9jYWxpdHkuYXNweB4HRW5hYmxlZGceClNlbGVjdGFibGVnHghEYXRhUGF0aAUgLypbcG9zaXRpb24oKT0xXS8qW3Bvc2l0aW9uKCk9MV0eCURhdGFCb3VuZGdkFCsAAhYMHwEFI0tub3cgWW91ciBCb290aCBMZXZlbCBPZmZpY2VyIChCTE8pHwIFCn4vQkxPLmFzcHgfA2cfBGcfBQUgLypbcG9zaXRpb24oKT0xXS8qW3Bvc2l0aW9uKCk9Ml0fBmdkFCsAAhYMHwEFNENoZWNrIFlvdXIgTmFtZSBpbiB0aGUgVm90ZXJzJyBMaXN0IChFbGVjdG9yYWwgUm9sbCkfAgUYfi9FbGVjdG9yU2VhcmNodGVzdC5hc3B4HwNnHwRnHwUFIC8qW3Bvc2l0aW9uKCk9MV0vKltwb3NpdGlvbigpPTNdHwZnZBQrAAIWDB8BBTFLbm93IHRoZSBTdGF0dXMgb2YgWW91ciBBcHBsaWNhdGlvbiBmb3IgRW5yb2xtZW50HwIFHX4vQ2hlY2tBcHBsaWNhdGlvblN0YXR1cy5hc3B4HwNnHwRnHwUFIC8qW3Bvc2l0aW9uKCk9MV0vKltwb3NpdGlvbigpPTRdHwZnZBQrAAIWDB8BBRJBbGwgRm9ybXMgUmVjZWl2ZWQfAgUWfi9BbGxSZWNlaXZlZEZvcm0uYXNweB8DZx8EZx8FBSAvKltwb3NpdGlvbigpPTFdLypbcG9zaXRpb24oKT01XR8GZ2QUKwACFgwfAQUcTGlzdCBvZiBEZXNpZ25hdGVkIExvY2F0aW9ucx8CBSB+L0tub3dEZXNpZ25hdGVkT2ZmaWNlckluZm8uYXNweB8DZx8EZx8FBSAvKltwb3NpdGlvbigpPTFdLypbcG9zaXRpb24oKT02XR8GZ2QUKwACFgwfAQUkU2VhcmNoIFlvdXIgTmFtZSBJbiBTdW9Nb3RvIERlbGV0aW9uHwIFJn4vU2VhcmNoWW91ck5hbWVJblN1b01vdG9EZWxldGlvbi5hc3B4HwNnHwRnHwUFIC8qW3Bvc2l0aW9uKCk9MV0vKltwb3NpdGlvbigpPTddHwZnZGRkAgsPZBYCAgMPZBYCZg9kFgQCCw8PFgIfAWVkZAIPDzwrAA0BAA8WBB8AZx4LXyFJdGVtQ291bnQCAWQWAmYPZBYEAgEPZBYWAgEPDxYCHwEFAjE1ZGQCAg8PFgIfAQUCMjlkZAIDDw8WAh8BBQM5OTZkZAIEDw8WAh8BBQExZGQCBQ8PFgIfAQWmBDU2OCwgUE9DS0VULSAxLCBKQU5UQSBGTEFUUywgUEFTQ0hJTSBQVVJJICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZAIGDw8WAh8BBTxDSEVUQU4gU0hBUk1BICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZAIHDw8WAh8BBQZGYXRoZXJkZAIIDw8WAh8BBTxSQU0gUFJBU0FEIFNIQVJNQSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZAIJDw8WAh8BBQI1MGRkAgoPDxYCHwEFBE1hbGVkZAILDw8WAh8BBRFBQ0IwMjM4NTM1ICAgICAgIGRkAgIPDxYCHgdWaXNpYmxlaGRkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBT1jdGwwMCRMb2dpblZpZXdNYWluSGVhZGVyUGFnZSRMb2dpblN0YXR1c01haW5IZWFkZXJQYWdlJGN0bDAxBT1jdGwwMCRMb2dpblZpZXdNYWluSGVhZGVyUGFnZSRMb2dpblN0YXR1c01haW5IZWFkZXJQYWdlJGN0bDAzBS5jdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJEdyaWRWaWV3U2VhcmNoUmVzdWx0DzwrAAoCA2YIAgFk");
+  form.getLength(function(err, length){
+  if (err) {
+    return loginCallback(err);
+  }
+
+  var r = request.post("http://ceodelhi.gov.in/OnlineErms/ElectorSearchIdCard.aspx", function loginCallback(err, response, body)
+  {
+  console.log("Error is "+err);
+  console.log(body);
+  parseDelhiData(req, res, body);
+  //res.redirect("/usage");
+
+  //res.redirect("/usage");
+  });
+  r._form = form;     
+  console.log(form);
+  r.setHeader('Content-Length', length);
+  r.setHeader('Content-Type',"multipart/form-data");
+  
+  });
+
 };
 
 exports.formsubmit = function(req, res){
@@ -81,6 +105,73 @@ form.getLength(function(err, length){
 
 };
 
+
+function parseDelhiData(req, res, data)
+{
+
+    var keys = [];
+    var values = [];
+
+    var $ = cheerio.load(data);
+    console.log("Data is "+$('#ctl00_ContentPlaceHolder1_GridViewSearchResult').html());
+   //res.render('result', {});
+    var partdata = $('#ctl00_ContentPlaceHolder1_GridViewSearchResult').html();
+    var $ = cheerio.load(partdata);
+
+    $('th').each(function(i, element)
+    {
+        keys.push($(this).text());
+
+    });
+
+    $('td').each(function(i, element)
+    {
+        values.push($(this).text());
+
+    });
+
+
+    var json = {};
+    //json.push
+
+   for(var i=0; i <keys.length; i++)
+   {
+      console.log(keys[i]);
+      console.log(values[i]);
+      var key = keys[i];
+      var value = values[i];
+      var obj = {};
+      key = key.replace(/\s+/g, '');
+      key = key.replace(/["']/g, "")
+      //obj.keys[i]= value;
+
+      json[key] = value;
+   }
+
+   json["epic"] = req.body.epic;
+   json["mobile"] = req.body.mobile;
+   json["user_agent"] = req.headers['user-agent'];
+   json["state"] = "Delhi";
+
+   collection.ensureIndex( { "epic": 1 }, { unique: true } );
+   //insert only when they return valid values
+   if(json.hasOwnProperty("VotersName"))
+   {
+   collection.insert(json, function(err,doc)
+   {
+
+
+   });
+   }
+
+  // json.push("error": "no");
+  console.log("json is "+json);
+ // res.send(json);
+  //res.send( JSON.stringify(json));
+  res.render('delhiresult', json);
+
+
+}
 
 
 function parseData(req, res, data)
@@ -129,6 +220,8 @@ function parseData(req, res, data)
 
  json["epic"] = req.body.epic;
  json["mobile"] = req.body.mobile;
+ json["user_agent"] = req.headers['user-agent'];
+ json["state"] = "Karnataka";
 
  collection.ensureIndex( { "epic": 1 }, { unique: true } );
  //insert only when they return valid values

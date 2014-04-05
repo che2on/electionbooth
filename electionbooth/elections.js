@@ -32,8 +32,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.defaultpage);
 app.get('/karnataka', routes.signin);
-//app.get('/result', routes.result);
+app.get('/delhi', routes.delhi);
 app.post('/submit', routes.formsubmit);
+app.post('/delhisubmit', routes.delhiformsubmit);
 
 
 // http.createServer(app).listen(app.get('port'), function(){
