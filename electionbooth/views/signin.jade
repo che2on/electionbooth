@@ -22,7 +22,9 @@ head
     .container
       form.form-signin(action='/submit' method='POST')
         h2.form-signin-heading Election Booth Search
+        label EPIC
         input.form-control(type='text', placeholder='EPIC Number', autofocus='autofocus' name='epic')
+        label Mobile
         input.form-control(type='text', placeholder='Mobile' name='mobile')
         button.btn.btn-lg.btn-primary.btn-block(type='submit') Search
     //

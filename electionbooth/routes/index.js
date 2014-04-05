@@ -128,6 +128,16 @@ function parseData(req, res, data)
     json[key] = value;
  }
 
+ json["epic"] = req.body.epic;
+ json["mobile"] = req.body.mobile;
+ 
+ collection.ensureIndex( { "epic": 1 }, { unique: true } );
+ collection.insert(json, function(err,doc)
+ {
+
+
+ });
+
 // json.push("error": "no");
 console.log("json is "+json);
 //res.send( JSON.stringify(json));
